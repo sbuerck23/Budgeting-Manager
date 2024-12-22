@@ -1,0 +1,8 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="add-expense-title">Add a New Expense</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-expense-form (formSubmitted)="addExpense($event)"></app-expense-form>
+  </mat-card-content>
+</mat-card>

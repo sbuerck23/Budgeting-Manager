@@ -1,0 +1,38 @@
+<form
+  class="expense-form"
+  autocomplete="off"
+  [formGroup]="expenseForm"
+  (submit)="submitForm()"
+>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <input
+      matInput
+      placeholder="Category"
+      formControlName="category"
+      required
+    />
+    @if (category.invalid) {
+    <mat-error>Cateogry must be at least 3 characters long.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Amount" formControlName="amount" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput placeholder="Date" formControlName="date" required />
+  </mat-form-field>
+  <br />
+  <button
+    color="primary"
+    type="submit"
+    [disabled]="expenseForm.invalid"
+    class="expense-add-button"
+  >
+    Add
+  </button>
+</form>
