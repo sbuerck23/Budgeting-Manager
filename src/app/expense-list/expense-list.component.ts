@@ -15,9 +15,9 @@ import { MatCardModule } from '@angular/material/card';
 export class ExpenseListComponent implements OnInit {
   expenses$ = {} as WritableSignal<Expense[]>;
   displayedColumns: string[] = [
-    'col-name',
-    'col-position',
-    'col-level',
+    'col-category',
+    'col-amount',
+    'col-date',
     'col-action',
   ];
 
