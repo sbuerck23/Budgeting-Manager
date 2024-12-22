@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { Expense } from '../expense';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-expense-form',
@@ -15,6 +16,7 @@ import { Expense } from '../expense';
     MatInputModule,
     MatRadioModule,
     MatButtonModule,
+    RouterModule,
   ],
   styleUrl: `./expense-form.component.css`,
   templateUrl: `./expense-form.component.html`,
