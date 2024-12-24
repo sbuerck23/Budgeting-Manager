@@ -25,6 +25,7 @@ export class ExpenseListComponent implements OnInit {
 
   ngOnInit() {
     this.fetchExpenses();
+    console.log(this.expenses$())
   }
 
   deleteExpense(id: string): void {

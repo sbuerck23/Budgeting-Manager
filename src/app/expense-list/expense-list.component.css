@@ -44,6 +44,33 @@
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
 }
 
+.expense-list-action-button:first-of-type {
+  margin-right: 5px;
+}
+
 mat-card-title {
   color: white;
+}
+
+mat-card-content {
+  border-radius: 10px;
+}
+
+table {
+  background-color: white;
+  border-radius: 10px;
+}
+
+th,
+td {
+  color: black;
+}
+
+th {
+  font-weight: bold;
+}
+
+.tester {
+  border-radius: 8px;
+  border: 7px solid white;
 }
