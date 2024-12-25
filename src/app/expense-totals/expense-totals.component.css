@@ -1,3 +1,7 @@
+mat-card {
+  width: 200px;
+}
+
 mat-card-title {
   color: white;
   height: 10px;
