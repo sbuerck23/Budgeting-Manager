@@ -1,0 +1,16 @@
+mat-card {
+  margin-left: 5px;
+}
+
+mat-card-title {
+  color: white;
+  height: 10px;
+}
+
+h3 {
+  background-color: white;
+  border-radius: 8px;
+  height: 40px;
+  align-content: center;
+  text-align: center;
+}

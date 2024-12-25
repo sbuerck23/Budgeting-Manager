@@ -1,10 +1,11 @@
 import { Component, computed } from '@angular/core';
 import { ExpenseService } from '../expense.service';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-expense-totals',
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatCardModule],
   templateUrl: `./expense-totals.component.html`,
   styleUrl: `./expense-totals.component.css`
 })
