@@ -74,3 +74,16 @@ th {
   border-radius: 8px;
   border: 7px solid white;
 }
+
+.expense-container {
+  display: flex;
+  gap: 16px; /* Space between components */
+}
+
+mat-card {
+  flex: 1; /* Allow mat-card to take up available space */
+}
+
+app-expense-totals {
+  flex: 0.3; /* Make totals component narrower */
+}

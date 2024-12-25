@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ExpenseTotalsComponent } from "./expense-totals/expense-totals.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbarModule, ExpenseTotalsComponent],
+  imports: [RouterOutlet, MatToolbarModule],
   styles: [
     `
       main {
@@ -22,7 +21,6 @@ import { ExpenseTotalsComponent } from "./expense-totals/expense-totals.componen
     </mat-toolbar>
     <main>
       <router-outlet></router-outlet>
-      <app-expense-totals></app-expense-totals>
     </main>
   `,
 })

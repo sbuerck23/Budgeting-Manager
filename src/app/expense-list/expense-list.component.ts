@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { ExpenseTotalsComponent } from "../expense-totals/expense-totals.component";
 
 @Component({
   selector: 'app-expense-list',
-  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule],
+  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent],
   templateUrl: './expense-list.component.html',
   styleUrl: `./expense-list.component.css`
 })

@@ -1,48 +1,51 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Expenses List</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="tester">
-      <table mat-table class="expense-list~" [dataSource]="expenses$()">
-        <ng-container matColumnDef="col-category">
-          <th mat-header-cell *matHeaderCellDef>Category</th>
-          <td mat-cell *matCellDef="let element">{{ element.category }}</td>
-        </ng-container>
-        <ng-container matColumnDef="col-amount">
-          <th mat-header-cell *matHeaderCellDef>Amount</th>
-          <td mat-cell *matCellDef="let element">${{ element.amount }}</td>
-        </ng-container>
-        <ng-container matColumnDef="col-date">
-          <th mat-header-cell *matHeaderCellDef>Date</th>
-          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
-        </ng-container>
-        <ng-container matColumnDef="col-action">
-          <th mat-header-cell *matHeaderCellDef>Action</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              class="expense-list-action-button"
-              [routerLink]="['edit/', element._id]"
-            >
-              Edit
-            </button>
-            <button
-              class="expense-list-action-button"
-              (click)="deleteExpense(element._id || '')"
-            >
-              Delete
-            </button>
-          </td>
-        </ng-container>
+<div class="expense-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Expenses List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="tester">
+        <table mat-table class="expense-list" [dataSource]="expenses$()">
+          <ng-container matColumnDef="col-category">
+            <th mat-header-cell *matHeaderCellDef>Category</th>
+            <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+          </ng-container>
+          <ng-container matColumnDef="col-amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let element">${{ element.amount }}</td>
+          </ng-container>
+          <ng-container matColumnDef="col-date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+          </ng-container>
+          <ng-container matColumnDef="col-action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                class="expense-list-action-button"
+                [routerLink]="['edit/', element._id]"
+              >
+                Edit
+              </button>
+              <button
+                class="expense-list-action-button"
+                (click)="deleteExpense(element._id || '')"
+              >
+                Delete
+              </button>
+            </td>
+          </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-    </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button class="expense-list-button" [routerLink]="['new']">
-      Add a New Expense
-    </button>
-  </mat-card-actions>
-</mat-card>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="expense-list-button" [routerLink]="['new']">
+        Add a New Expense
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <app-expense-totals></app-expense-totals>
+</div>
