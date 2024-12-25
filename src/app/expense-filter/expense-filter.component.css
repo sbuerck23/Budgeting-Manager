@@ -4,6 +4,7 @@ mat-card {
 
 mat-card-header {
   color: white;
+  padding-bottom: 5px;
 }
 
 mat-card-content {

@@ -50,6 +50,7 @@
 
 mat-card-title {
   color: white;
+  padding-bottom: 5px;
 }
 
 mat-card-content {
