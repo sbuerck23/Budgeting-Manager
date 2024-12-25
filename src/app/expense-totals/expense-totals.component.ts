@@ -1,27 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { ExpenseService } from '../expense.service';
-import { WritableSignal } from '@angular/core';
-import { Expense } from '../expense';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-expense-totals',
-  imports: [],
+  imports: [MatTableModule],
   templateUrl: `./expense-totals.component.html`,
   styleUrl: `./expense-totals.component.css`
 })
 export class ExpenseTotalsComponent {
-  expenses$ = {} as WritableSignal<Expense[]>;
+
+  constructor(private expenseService: ExpenseService) { }
+
+  totalAmount = computed(() => {
+    const expenses = this.expenseService.expenses$();
+    return expenses.reduce((sum, expense) => sum + (expense.amount || 0), 0);
+  });
 
 
-  constructor(private expensesService: ExpenseService) { }
-
-  ngOnInit() {
-    this.fetchExpenses();
-    console.log(this.expenses$())
-  }
-
-  private fetchExpenses(): void {
-    this.expenses$ = this.expensesService.expenses$;
-    this.expensesService.getExpenses();
-  }
 }

@@ -24,7 +24,7 @@ export class AddExpenseComponent {
         this.router.navigate(['/']);
       },
       error: (error) => {
-        alert('Failed to create expense' + error);
+        alert('Failed to create expense');
         console.error(error);
       },
     });
