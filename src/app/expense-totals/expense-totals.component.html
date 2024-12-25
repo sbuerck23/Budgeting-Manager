@@ -3,6 +3,6 @@
     <mat-card-title>Total Expenses</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <h3>${{ totalAmount() }}</h3>
+    <h3>{{ totalAmount() | currencyFormat }}</h3>
   </mat-card-content>
 </mat-card>
