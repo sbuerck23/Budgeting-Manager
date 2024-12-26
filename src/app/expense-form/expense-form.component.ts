@@ -35,7 +35,8 @@ export class ExpenseFormComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.expenseForm = this.formBuilder.group({
-      category: ['', [Validators.required, Validators.minLength(3)]],
+      category: ['', [Validators.required]],
+      description: ['', [Validators.required]],
       amount: ['', [Validators.required]],
       date: ['', Validators.required],
     });
@@ -43,6 +44,7 @@ export class ExpenseFormComponent {
     effect(() => {
       this.expenseForm.setValue({
         category: this.initialState()?.category || '',
+        description: this.initialState()?.description || '',
         amount: this.initialState()?.amount || '',
         date: this.initialState()?.date || '',
       });
@@ -51,6 +53,9 @@ export class ExpenseFormComponent {
 
   get category() {
     return this.expenseForm.get('category')!;
+  }
+  get description() {
+    return this.expenseForm.get('description')!;
   }
   get amount() {
     return this.expenseForm.get('amount')!;

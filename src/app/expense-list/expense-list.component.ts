@@ -7,10 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ExpenseTotalsComponent } from "../expense-totals/expense-totals.component";
 import { ExpenseFilterComponent } from "../expense-filter/expense-filter.component";
+import { CurrencyFormatPipe } from '../currency-format.pipe';
 
 @Component({
   selector: 'app-expense-list',
-  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent],
+  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent, CurrencyFormatPipe],
   templateUrl: './expense-list.component.html',
   styleUrl: `./expense-list.component.css`
 })
@@ -18,6 +19,7 @@ export class ExpenseListComponent implements OnInit {
   expenses$ = {} as WritableSignal<Expense[]>;
   displayedColumns: string[] = [
     'col-category',
+    'col-description',
     'col-amount',
     'col-date',
     'col-action',

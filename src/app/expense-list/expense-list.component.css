@@ -65,6 +65,7 @@ table {
 th,
 td {
   color: black;
+  max-width: 300px;
 }
 
 th {
