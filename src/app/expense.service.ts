@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Expense } from './expense';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class ExpenseService {
   private url = 'http://localhost:5200';
   expenses$ = signal<Expense[]>([]);
   expense$ = signal<Expense>({} as Expense);
-  expensesVar: Expense[] = [];
+
+  private filterSubject = new BehaviorSubject<{ searchTerm: string; category: string }>({ searchTerm: '', category: '' });
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,13 +19,30 @@ export class ExpenseService {
     this.httpClient.get<Expense[]>(`${this.url}/expenses`)
       .subscribe(expenses => {
         this.expenses$.set(expenses);
-        this.expensesVar = expenses;
       });
   }
 
-  getExpensesVar() {
-    this.refreshExpenses();
-    return this.expensesVar;
+  getFilteredExpenses(): Observable<Expense[]> {
+    return combineLatest([
+      this.httpClient.get<Expense[]>(`${this.url}/expenses`),
+      this.filterSubject.asObservable()
+    ]).pipe(
+      map(([expenses, filters]) => {
+        return expenses.filter(expense => {
+          const matchesSearch =
+            expense.category.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
+            expense.description.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
+            expense.amount.toString().includes(filters.searchTerm.toLowerCase()) ||
+            expense.date.toLowerCase().includes(filters.searchTerm.toLowerCase());
+          const matchesCategory = !filters.category || expense.category === filters.category;
+          return matchesSearch && matchesCategory;
+        });
+      })
+    );
+  }
+
+  setFilters(filters: { searchTerm: string; category: string }) {
+    this.filterSubject.next(filters);
   }
 
   getExpenses() {

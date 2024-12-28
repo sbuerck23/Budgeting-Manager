@@ -8,29 +8,23 @@ import { MatCardModule } from '@angular/material/card';
 import { ExpenseTotalsComponent } from "../expense-totals/expense-totals.component";
 import { ExpenseFilterComponent } from "../expense-filter/expense-filter.component";
 import { CurrencyFormatPipe } from '../currency-format.pipe';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-expense-list',
-  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent, CurrencyFormatPipe],
+  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent, CurrencyFormatPipe, AsyncPipe],
   templateUrl: './expense-list.component.html',
   styleUrl: `./expense-list.component.css`
 })
 export class ExpenseListComponent implements OnInit {
   expenses$ = {} as WritableSignal<Expense[]>;
-  filteredExpenses$ = signal<Expense[]>([]);
-  expensesVar: Expense[] = [];
-  displayedColumns: string[] = [
-    'col-category',
-    'col-description',
-    'col-amount',
-    'col-date',
-    'col-action',
-  ];
+  filteredExpenses$!: Observable<Expense[]>;
 
   constructor(private expensesService: ExpenseService) { }
 
   ngOnInit() {
-    this.fetchExpenses();
+    this.filteredExpenses$ = this.expensesService.getFilteredExpenses();
   }
 
   deleteExpense(id: string): void {
@@ -40,27 +34,12 @@ export class ExpenseListComponent implements OnInit {
   }
 
   private fetchExpenses(): void {
-    this.expensesVar = this.expensesService.getExpenses();
-    this.filteredExpenses$ = this.expensesService.expenses$;
+    this.expensesService.getExpenses();
+    this.expenses$ = this.expensesService.expenses$;
   }
 
-  applyFilters(filters: { searchTerm: string; category: string }): void {
-    const expenses = this.expenses$();
-    const { searchTerm, category } = filters;
-
-    const filtered = expenses.filter(expense => {
-      const matchesSearch =
-        expense.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        expense.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        expense.amount.toString().includes(searchTerm) ||
-        expense.date.includes(searchTerm);
-
-      const matchesCategory = !category || expense.category === category;
-
-      return matchesSearch && matchesCategory;
-    });
-
-    this.filteredExpenses$.set(filtered); // Update the filteredExpenses$ signal
+  applyFilters(filters: { searchTerm: string; category: string }) {
+    this.expensesService.setFilters(filters);
   }
 }
 

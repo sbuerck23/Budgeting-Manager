@@ -10,7 +10,7 @@
           <span class="expense-date">Date</span>
         </p>
       </div>
-      @for(expense of filteredExpenses$(); track expense.description) {
+      @for(expense of filteredExpenses$ | async; track expense.description) {
       <div class="expense-item">
         <p class="expense-row">
           <span class="expense-category">{{ expense.category }}</span>
