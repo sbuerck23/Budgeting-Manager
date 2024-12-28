@@ -15,7 +15,7 @@ export class ExpenseTotalsComponent {
   constructor(private expenseService: ExpenseService) { }
 
   totalAmount = computed(() => {
-    const expenses = this.expenseService.expenses$();
+    const expenses = this.expenseService.getExpenses();
     return expenses.reduce((sum, expense) => sum + (expense.amount || 0), 0);
   });
 
