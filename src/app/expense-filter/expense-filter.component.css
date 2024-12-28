@@ -24,7 +24,6 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
 }
 
 select {
@@ -34,9 +33,9 @@ select {
   border-radius: 4px;
   font-size: 1rem;
   background-color: #fff;
+  cursor: pointer;
 }
 
 select:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
 }

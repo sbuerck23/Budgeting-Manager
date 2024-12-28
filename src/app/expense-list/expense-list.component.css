@@ -48,44 +48,51 @@
   margin-right: 5px;
 }
 
-mat-card-title {
-  color: white;
-  padding-bottom: 5px;
-}
-
-mat-card-content {
-  border-radius: 10px;
-}
-
-table {
-  background-color: white;
-  border-radius: 10px;
-}
-
-th,
-td {
-  color: black;
-  max-width: 300px;
-}
-
-th {
-  font-weight: bold;
-}
-
-.tester {
-  border-radius: 8px;
-  border: 7px solid white;
-}
-
 .expense-container {
   display: flex;
   gap: 16px; /* Space between components */
 }
 
-mat-card {
-  flex: 1; /* Allow mat-card to take up available space */
-}
-
 app-expense-totals {
   flex: 0.3; /* Make totals component narrower */
+}
+
+.expense-row {
+  display: flex;
+  height: 25px;
+}
+
+.expense-row-header {
+  display: flex;
+  height: 30px;
+  font-weight: bold;
+}
+
+.expense-category,
+.expense-description {
+  width: 150px;
+}
+
+.expense-amount,
+.expense-date {
+  width: 100px;
+}
+
+.expense-list {
+  background-color: #101414;
+  padding: 20px;
+  border-radius: 13px;
+}
+
+.expense-list-items {
+  background-color: white;
+  padding: 13px;
+  border-radius: 13px;
+}
+
+.expense-list-title {
+  color: white;
+  font-size: 27px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }

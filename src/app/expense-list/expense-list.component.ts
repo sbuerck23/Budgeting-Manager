@@ -1,4 +1,4 @@
-import { Component, OnInit, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { Expense } from '../expense';
 import { ExpenseService } from '../expense.service';
 import { RouterModule } from '@angular/router';
@@ -17,6 +17,8 @@ import { CurrencyFormatPipe } from '../currency-format.pipe';
 })
 export class ExpenseListComponent implements OnInit {
   expenses$ = {} as WritableSignal<Expense[]>;
+  filteredExpenses$ = signal<Expense[]>([]);
+  expensesVar: Expense[] = [];
   displayedColumns: string[] = [
     'col-category',
     'col-description',
@@ -38,7 +40,27 @@ export class ExpenseListComponent implements OnInit {
   }
 
   private fetchExpenses(): void {
-    this.expenses$ = this.expensesService.expenses$;
-    this.expensesService.getExpenses();
+    this.expensesVar = this.expensesService.getExpenses();
+    this.filteredExpenses$ = this.expensesService.expenses$;
+  }
+
+  applyFilters(filters: { searchTerm: string; category: string }): void {
+    const expenses = this.expenses$();
+    const { searchTerm, category } = filters;
+
+    const filtered = expenses.filter(expense => {
+      const matchesSearch =
+        expense.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        expense.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        expense.amount.toString().includes(searchTerm) ||
+        expense.date.includes(searchTerm);
+
+      const matchesCategory = !category || expense.category === category;
+
+      return matchesSearch && matchesCategory;
+    });
+
+    this.filteredExpenses$.set(filtered); // Update the filteredExpenses$ signal
   }
 }
+

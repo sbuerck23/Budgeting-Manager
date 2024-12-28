@@ -9,6 +9,7 @@ export class ExpenseService {
   private url = 'http://localhost:5200';
   expenses$ = signal<Expense[]>([]);
   expense$ = signal<Expense>({} as Expense);
+  expensesVar: Expense[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,7 +17,13 @@ export class ExpenseService {
     this.httpClient.get<Expense[]>(`${this.url}/expenses`)
       .subscribe(expenses => {
         this.expenses$.set(expenses);
+        this.expensesVar = expenses;
       });
+  }
+
+  getExpensesVar() {
+    this.refreshExpenses();
+    return this.expensesVar;
   }
 
   getExpenses() {
