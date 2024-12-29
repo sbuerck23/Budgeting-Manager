@@ -1,6 +1,11 @@
 <div class="expense-container">
   <div class="expense-list">
-    <p class="expense-list-title">Expenses List</p>
+    <div class="expense-list-main-header">
+      <p class="expense-list-title">Expenses List</p>
+      <button class="expense-list-button" [routerLink]="['new']">
+        Add a New Expense
+      </button>
+    </div>
     <div class="expense-list-items">
       <div class="expense-list-header">
         <p class="expense-row-header">
@@ -11,7 +16,10 @@
         </p>
       </div>
       @for(expense of filteredExpenses$ | async; track expense.description) {
-      <button class="expense-item-button">
+      <button
+        class="expense-item-button"
+        [routerLink]="['expense/', expense._id]"
+      >
         <div class="expense-item">
           <p class="expense-row">
             <span class="expense-category">{{ expense.category }}</span>

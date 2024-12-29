@@ -9,6 +9,8 @@
   cursor: pointer; /* Pointer cursor on hover */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: all 0.3s ease; /* Smooth hover effect */
+  margin-left: auto;
+  margin-bottom: 8px;
 }
 
 .expense-list-button:hover {
@@ -112,4 +114,8 @@ app-expense-totals {
 .expense-item-button:hover {
   background-color: rgb(220, 220, 220);
   transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.expense-list-main-header {
+  display: flex;
 }

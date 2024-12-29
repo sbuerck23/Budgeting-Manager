@@ -1,3 +1,10 @@
 .add-expense-title {
   color: white;
 }
+
+mat-card {
+  width: 350px;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+}
