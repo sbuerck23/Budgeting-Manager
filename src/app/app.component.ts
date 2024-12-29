@@ -6,15 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, MatToolbarModule],
-  styles: [
-    `
-      main {
-        display: flex;
-        justify-content: center;
-        padding: 2rem 4rem;
-      }
-    `,
-  ],
+  styles: [],
   template: `
     <mat-toolbar>
       <span>Buerck's Budgeting System</span>

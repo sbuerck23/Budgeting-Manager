@@ -4,7 +4,7 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { EditExpenseComponent } from './edit-expense/edit-expense.component';
 
 export const routes: Routes = [
-    { path: '', component: ExpenseListComponent, title: 'Expenses List' },
-    { path: 'new', component: AddExpenseComponent },
-    { path: 'edit/:id', component: EditExpenseComponent },
+    { path: '', component: ExpenseListComponent, title: 'Budget Home' },
+    { path: 'new', component: AddExpenseComponent, title: 'New Expense' },
+    { path: 'edit/:id', component: EditExpenseComponent, title: 'Edit Expense' },
 ];
