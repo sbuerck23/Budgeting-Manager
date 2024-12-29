@@ -51,6 +51,7 @@
 .expense-container {
   display: flex;
   gap: 16px; /* Space between components */
+  width: 500px;
 }
 
 app-expense-totals {
@@ -60,6 +61,7 @@ app-expense-totals {
 .expense-row {
   display: flex;
   height: 25px;
+  text-align: left;
 }
 
 .expense-row-header {
@@ -99,4 +101,15 @@ app-expense-totals {
   font-size: 27px;
   margin-top: 0px;
   margin-bottom: 5px;
+}
+
+.expense-item-button {
+  border: none;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.expense-item-button:hover {
+  background-color: rgb(220, 220, 220);
+  transition: all 0.3s ease; /* Smooth hover effect */
 }

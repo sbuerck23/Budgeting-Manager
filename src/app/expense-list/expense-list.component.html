@@ -11,32 +11,19 @@
         </p>
       </div>
       @for(expense of filteredExpenses$ | async; track expense.description) {
-      <div class="expense-item">
-        <p class="expense-row">
-          <span class="expense-category">{{ expense.category }}</span>
-          <span class="expense-description">{{ expense.description }}</span>
-          <span class="expense-amount">{{
-            expense.amount | currencyFormat
-          }}</span>
-          <span class="expense-date">{{ expense.date }}</span>
-          <button
-            class="expense-list-action-button"
-            [routerLink]="['edit/', expense._id]"
-          >
-            Edit
-          </button>
-          <button
-            class="expense-list-action-button"
-            (click)="deleteExpense(expense._id || '')"
-          >
-            Delete
-          </button>
-        </p>
-      </div>
-      }
-      <button class="expense-list-button" [routerLink]="['new']">
-        Add a New Expense
+      <button class="expense-item-button">
+        <div class="expense-item">
+          <p class="expense-row">
+            <span class="expense-category">{{ expense.category }}</span>
+            <span class="expense-description">{{ expense.description }}</span>
+            <span class="expense-amount">{{
+              expense.amount | currencyFormat
+            }}</span>
+            <span class="expense-date">{{ expense.date }}</span>
+          </p>
+        </div>
       </button>
+      }
     </div>
   </div>
   <app-expense-filter
