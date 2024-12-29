@@ -71,6 +71,10 @@ app-expense-totals {
 .expense-category,
 .expense-description {
   width: 150px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .expense-amount,
