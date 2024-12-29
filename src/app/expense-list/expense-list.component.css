@@ -60,13 +60,13 @@ app-expense-totals {
 
 .expense-row {
   display: flex;
-  height: 25px;
+  height: 15px;
   text-align: left;
 }
 
 .expense-row-header {
   display: flex;
-  height: 30px;
+  height: 20px;
   font-weight: bold;
 }
 
