@@ -1,6 +1,7 @@
 .expense-details {
   background-color: white;
   border-radius: 8px;
+  padding-left: 5px;
 }
 
 mat-card-title {
