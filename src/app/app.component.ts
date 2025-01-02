@@ -10,7 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     `
       main {
         padding: 5px;
-        background-color:rgb(255, 182, 130);
+        height: 100%;
       }
     `,
   ],

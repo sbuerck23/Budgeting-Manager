@@ -57,6 +57,10 @@ export class ExpenseService {
     });
   }
 
+  getExpenseById(id: string): Observable<Expense> {
+    return this.httpClient.get<Expense>(`${this.url}/expenses/${id}`);
+  }
+
   createExpense(expense: Expense) {
     return this.httpClient.post(`${this.url}/expenses`, expense, { responseType: 'text' });
   }

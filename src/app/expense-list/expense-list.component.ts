@@ -27,17 +27,6 @@ export class ExpenseListComponent implements OnInit {
     this.filteredExpenses$ = this.expensesService.getFilteredExpenses();
   }
 
-  deleteExpense(id: string): void {
-    this.expensesService.deleteExpense(id).subscribe({
-      next: () => this.fetchExpenses(),
-    });
-  }
-
-  private fetchExpenses(): void {
-    this.expensesService.getExpenses();
-    this.expenses$ = this.expensesService.expenses$;
-  }
-
   applyFilters(filters: { searchTerm: string; category: string }) {
     this.expensesService.setFilters(filters);
   }

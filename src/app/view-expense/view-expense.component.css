@@ -1,0 +1,95 @@
+.expense-details {
+  background-color: white;
+  border-radius: 8px;
+}
+
+mat-card-title {
+  color: white;
+}
+
+mat-card {
+  width: 30%;
+  justify-self: center;
+}
+
+.expense-edit-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 12px 12px; /* Add padding */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  width: 45%;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.expense-edit-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.expense-edit-button:active {
+  transform: scale(0.98); /* Slightly shrink on click */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
+}
+
+.expense-delete-button {
+  background-color: #cb4444; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 12px 12px; /* Add padding */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  width: 45%;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.expense-delete-button:hover {
+  background-color: #ae3c3c; /* Slightly darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.expense-delete-button:active {
+  transform: scale(0.98); /* Slightly shrink on click */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
+}
+
+.expense-back-button {
+  background-color: #9d9d9d; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 12px 12px; /* Add padding */
+  font-size: 12px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  width: 93%;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.expense-back-button:hover {
+  background-color: #919191; /* Slightly darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.expense-back-button:active {
+  transform: scale(0.98); /* Slightly shrink on click */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
+}
+
+.view-expense-buttons {
+  display: flex;
+}

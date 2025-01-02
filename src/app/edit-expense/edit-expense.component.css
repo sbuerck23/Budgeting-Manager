@@ -1,3 +1,8 @@
 mat-card-title {
   color: white;
 }
+
+mat-card {
+  width: 27%;
+  justify-self: center;
+}

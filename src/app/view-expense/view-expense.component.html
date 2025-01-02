@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ expense.category }} Expense</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="expense-details">
+      <div class="expense-category">
+        <h3>Category</h3>
+        <p>{{ expense.category }}</p>
+      </div>
+
+      <div class="expense-description">
+        <h3>Description</h3>
+        <p>{{ expense.description }}</p>
+      </div>
+
+      <div class="expense-amount">
+        <h3>Amount</h3>
+        <p>{{ expense.amount | currencyFormat }}</p>
+      </div>
+
+      <div class="expense-date">
+        <h3>Date</h3>
+        <p>{{ expense.date }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+  <div class="view-expense-buttons">
+    <button
+      class="expense-edit-button"
+      [routerLink]="['/edit/', expense._id]"
+      (click)="log(expense._id)"
+    >
+      Edit
+    </button>
+    <button
+      class="expense-delete-button"
+      (click)="deleteExpense(expense._id || '')"
+      [routerLink]="['/']"
+    >
+      Delete
+    </button>
+  </div>
+  <button class="expense-back-button" [routerLink]="['/']">
+    Back to Expense List
+  </button>
+</mat-card>
