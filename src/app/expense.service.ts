@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Expense } from './expense';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class ExpenseService {
   expenses$ = signal<Expense[]>([]);
   expense$ = signal<Expense>({} as Expense);
 
-  private filterSubject = new BehaviorSubject<{ searchTerm: string; category: string }>({ searchTerm: '', category: '' });
+  public filterSubject = new BehaviorSubject<{ searchTerm: string; category: string }>({ searchTerm: '', category: '' });
 
   constructor(private httpClient: HttpClient) { }
 
-  private refreshExpenses() {
+  public refreshExpenses() {
     this.httpClient.get<Expense[]>(`${this.url}/expenses`)
       .subscribe(expenses => {
         this.expenses$.set(expenses);
@@ -48,6 +49,10 @@ export class ExpenseService {
   getExpenses() {
     this.refreshExpenses();
     return this.expenses$();
+  }
+
+  getExpensesObservable(): Observable<Expense[]> {
+    return this.httpClient.get<Expense[]>(`${this.url}/expenses`);
   }
 
   getExpense(id: string) {

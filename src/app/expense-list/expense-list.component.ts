@@ -10,20 +10,22 @@ import { ExpenseFilterComponent } from "../expense-filter/expense-filter.compone
 import { CurrencyFormatPipe } from '../currency-format.pipe';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { ExpensePieChartComponent } from '../expense-pie-chart/expense-pie-chart.component';
 
 @Component({
   selector: 'app-expense-list',
-  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent, CurrencyFormatPipe, AsyncPipe],
+  imports: [RouterModule, MatTableModule, MatButtonModule, MatCardModule, ExpenseTotalsComponent, ExpenseFilterComponent, CurrencyFormatPipe, AsyncPipe, ExpensePieChartComponent],
   templateUrl: './expense-list.component.html',
   styleUrl: `./expense-list.component.css`
 })
 export class ExpenseListComponent implements OnInit {
-  expenses$ = {} as WritableSignal<Expense[]>;
+  expenses: Expense[];
   filteredExpenses$!: Observable<Expense[]>;
 
   constructor(private expensesService: ExpenseService) { }
 
   ngOnInit() {
+    //this.expensesService.filterSubject.next({ searchTerm: '', category: '' });
     this.filteredExpenses$ = this.expensesService.getFilteredExpenses();
   }
 
