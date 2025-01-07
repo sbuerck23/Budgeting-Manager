@@ -1,4 +1,9 @@
 .pie-chart {
-  height: 400px;
-  display: block;
+  height: 300px;
+}
+
+mat-card {
+  height: auto;
+  padding: 0px 10px 60px 10px;
+  color: white;
 }

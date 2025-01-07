@@ -1,10 +1,14 @@
-<div class="pie-chart">
-  <canvas
-    baseChart
-    [type]="'pie'"
-    [datasets]="pieChartDatasets"
-    [labels]="pieChartLabels"
-    [legend]="false"
-    [options]="pieChartOptions"
-  ></canvas>
-</div>
+<mat-card>
+  <div class="pie-chart">
+    <p>Expenses Chart</p>
+    <canvas
+      class="pie-chart-canvas"
+      baseChart
+      [type]="'pie'"
+      [datasets]="pieChartDatasets"
+      [labels]="pieChartLabels"
+      [legend]="false"
+      [options]="pieChartOptions"
+    ></canvas>
+  </div>
+</mat-card>
