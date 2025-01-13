@@ -21,7 +21,7 @@ export class AddExpenseComponent {
   addExpense(expense: Expense) {
     this.expenseService.createExpense(expense).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/list']);
       },
       error: (error) => {
         alert('Failed to create expense');

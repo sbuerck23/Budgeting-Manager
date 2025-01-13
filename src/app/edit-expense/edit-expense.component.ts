@@ -36,7 +36,7 @@ export class EditExpenseComponent implements OnInit {
       .updateExpense(this.expense()._id || '', expense)
       .subscribe({
         next: () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/list']);
         },
         error: (error) => {
           alert('Failed to update expense');
