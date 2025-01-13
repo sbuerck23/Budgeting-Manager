@@ -14,6 +14,6 @@ export class AuthService {
   }
 
   register(creds: { username: string, password: string }) {
-    this.httpClient.post(`${this.url}/register`, creds, { responseType: 'text' });
+    return this.httpClient.post(`${this.url}/users/register`, creds, { responseType: 'text' });
   }
 }
