@@ -1,0 +1,24 @@
+<form
+  class="login-form"
+  [formGroup]="loginForm"
+  autocomplete="off"
+  (submit)="onSubmit()"
+>
+  <input
+    class="username-input"
+    type="text"
+    placeholder="Username"
+    formControlName="username"
+    required
+  />
+  <input
+    class="password-input"
+    type="text"
+    placeholder="Password"
+    formControlName="password"
+    required
+  />
+  <button class="login-button" type="submit" [disabled]="loginForm.invalid">
+    Login
+  </button>
+</form>
