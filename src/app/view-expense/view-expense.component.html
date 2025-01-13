@@ -26,11 +26,7 @@
     </div>
   </mat-card-content>
   <div class="view-expense-buttons">
-    <button
-      class="expense-edit-button"
-      [routerLink]="['/edit/', expense._id]"
-      (click)="log(expense._id)"
-    >
+    <button class="expense-edit-button" [routerLink]="['/edit/', expense._id]">
       Edit
     </button>
     <button

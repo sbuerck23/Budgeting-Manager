@@ -34,8 +34,4 @@ export class ViewExpenseComponent implements OnInit {
   private fetchExpenses(): void {
     this.expenseService.getExpenses();
   }
-
-  log(id: string) {
-    console.log(id);
-  }
 }

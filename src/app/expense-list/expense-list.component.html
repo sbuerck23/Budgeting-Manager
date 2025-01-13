@@ -18,7 +18,7 @@
       @for(expense of filteredExpenses$ | async; track expense.description) {
       <button
         class="expense-item-button"
-        [routerLink]="['expense/', expense._id]"
+        [routerLink]="['/expense/', expense._id]"
       >
         <div class="expense-item">
           <p class="expense-row">
